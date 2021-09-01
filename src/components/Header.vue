@@ -3,7 +3,7 @@
 
         <nav  class="container">
         
-            <a href="#">
+            <a href="/">
                 <img alt="Logotipo" id="logo" src="https://thumbs.jusbr.com/filters:format(webp)/imgs.jusbr.com/publications/images/fdec4032a25557564976374b8f6ba6bb">
             </a>
 
@@ -14,8 +14,9 @@
             <div id="menu-items" :class="{active:menuActive}">
                 <img alt="Logotipo" id="menu-logo" src="https://thumbs.jusbr.com/filters:format(webp)/imgs.jusbr.com/publications/images/fdec4032a25557564976374b8f6ba6bb">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Contatos</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Cadastrar</a></li>
+                    <li><a href="/contatos">Contatos</a></li>
                     <li><a href="#">Sobre</a></li>
                 </ul>
             </div>
