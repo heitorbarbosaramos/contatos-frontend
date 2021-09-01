@@ -99,8 +99,31 @@ export default {
         display: flex;
     }
 
+    @media (min-width: 700px) {
+        #menu-button, #menu-logo, #menu-overlay{
+            display: none;
+        }
+
+        #menu-items{
+            display: flex;
+            position: static;
+            height: 60px;
+            width: auto;
+        }
+
+        ul{
+            display: flex;
+        }
+
+        ul li{
+            margin: 0;
+            padding: 10px;
+        }
+    }
+
     ul{
         list-style: none;
+        align-items: center;
     }
 
     ul li{
