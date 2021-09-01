@@ -7,11 +7,11 @@
                 <img alt="Logotipo" id="logo" src="https://thumbs.jusbr.com/filters:format(webp)/imgs.jusbr.com/publications/images/fdec4032a25557564976374b8f6ba6bb">
             </a>
 
-            <img alt="menu mobile" id="menu-button" src="https://img.icons8.com/cotton/2x/4a90e2/menu.png"/>
+            <img alt="menu mobile" id="menu-button" v-on:click="openMenu" src="https://img.icons8.com/cotton/2x/4a90e2/menu.png"/>
 
-            <div id="menu-overlay"></div>
+            <div id="menu-overlay" v-on:click="closeMenu" v-if="menuActive"></div>
 
-            <div id="menu-items">
+            <div id="menu-items" :class="{active:menuActive}">
                 <img alt="Logotipo" id="menu-logo" src="https://thumbs.jusbr.com/filters:format(webp)/imgs.jusbr.com/publications/images/fdec4032a25557564976374b8f6ba6bb">
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -25,7 +25,21 @@
 
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    data(){
+        return{
+            menuActive:false
+        }
+    },
+    methods:{
+        openMenu:function(){
+            this.menuActive = true;
+        },
+        closeMenu:function(){
+            this.menuActive = false;
+        }
+
+    }
 }
 </script>
 
@@ -75,10 +89,14 @@ export default {
         background-color: var(--color-background-nav);
         width: 60%;
         height: 100vh;
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: start;
         align-items: center;
+    }
+
+    #menu-items.active{
+        display: flex;
     }
 
     ul{
