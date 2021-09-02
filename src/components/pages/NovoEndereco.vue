@@ -95,13 +95,28 @@ export default{
 
             console.log(this.endereco);
            
+        }).catch(err =>{
+            err.message || "Ocorreu algum erro ao recuperar o endereco pelo cep";
+            this.endereco={};
+            alert("Ocorreu algum erro ao recuperar o endereco pelo cep");
         })
         },
         salvarEndereco(){
 
            api.post('/', this.endereco).then(response => {
                 console.log(response.data);
-            })
+                console.log(response.status);
+                if(response.status == 200){
+                    alert("Cadastro realizado com sucesso");
+                    this.endereco={};
+                }else{
+                    alert("Cadastro não realizado");
+                }
+            }).catch( err =>{
+                 err.message || " Ocorreu algum erro ao criar o endereco."
+                 alert("Ocorreu algum erro ao criar o endereco.")
+                }
+            )
             console.log("SALVANDO ENDERECO");
             console.log(this.endereco);
         }
