@@ -6,6 +6,7 @@ Vue.use(VueRouter)
 import Home from '../components/pages/Home';
 import Contatos from '../components/pages/Contatos';
 import NovoEndereco from '../components/pages/NovoEndereco';
+import Editar from '../components/pages/Editar'
 
 const routes = [
     {
@@ -19,6 +20,10 @@ const routes = [
     {
         path:"/novoEndenreco",
         component: NovoEndereco
+    },
+    {
+        path:"/editar",
+        component: Editar
     }
 ];
 

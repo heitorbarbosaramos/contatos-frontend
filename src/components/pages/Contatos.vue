@@ -21,10 +21,18 @@
                    
                 </div>
                  <div class="row">
-                     <div class="form-group col-md-5">
-                            <small for="logradouro">Logradouro</small>
-                            <input type="text" class="form-control" id="logradouro" :value="endereco.logradouro" disabled>
-                        </div>
+                    <div class="form-group col-md-5">
+                        <small for="logradouro">Logradouro</small>
+                        <input type="text" class="form-control" id="logradouro" :value="endereco.logradouro" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <small for="logradouro">Editar</small>
+                        <a :href="'/editar?id=' + endereco.id" class=" form-control btn btn-success">Editar</a>
+                    </div>
+                     <div class="form-group col-md-2">
+                        <small for="logradouro">Excluir</small>
+                        <a v-on:click="excluir(endereco.id)" class=" form-control btn btn-danger">Excluir</a>
+                    </div>
                  </div>
                 </div>
             </div>
@@ -44,10 +52,27 @@ export default {
             enderecos:[]
         }
     },
+    methods:{
+        excluir(id){
+            console.log("EXCLUINDO ENDERECO ID: " + id);
+            api.delete("/"+id).then(response =>{
+                console.log("ENDERECO EXCLUIDO  " + response.status);
+                alert("Endereco excluido");
+                location.reload();
+            }).catch(err =>{
+                err.message || "Erro ao excluir endereco";
+                alert("Erro ao excluir endereco");
+            })
+           
+        }
+    },
     mounted(){
         api.get('/').then(response => {
             console.log(response.data);
             this.enderecos = response.data;
+        }).catch(err =>{
+            err.message || " Ocorreu um erro ao recuperar a lista, possivelmente o servidor esteja desligado";
+            alert(" Ocorreu um erro ao recuperar a lista, possivelmente o servidor esteja desligado");       
         })
     }
 }
