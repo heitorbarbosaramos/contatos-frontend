@@ -6,7 +6,8 @@ Vue.use(VueRouter)
 import Home from '../components/pages/Home';
 import Contatos from '../components/pages/Contatos';
 import NovoEndereco from '../components/pages/NovoEndereco';
-import Editar from '../components/pages/Editar'
+import Editar from '../components/pages/Editar';
+import Sobre from '../components/pages/Sobre';
 
 const routes = [
     {
@@ -24,6 +25,10 @@ const routes = [
     {
         path:"/editar",
         component: Editar
+    },
+    {
+        path:"/sobre",
+        component: Sobre
     }
 ];
 

@@ -4,7 +4,7 @@
 
        <div class="text-topo">Pesquisa por endereços e contatos </div>
         <img id="logo" src="https://acegif.com/wp-content/gifs/globe-9.gif" />
-       <div class="text-bottom">SIS WEB, facilitando a sua vida! </div>
+       <div class="text-bottom">SIS WEB, <s>ATRAPALHANDO</s> facilitando a sua vida! </div>
 
    </main>
 
@@ -50,5 +50,4 @@ export default{
             padding: 20px;
         }
     }
-
 </style>

@@ -17,7 +17,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/novoEndenreco">Cadastrar</a></li>
                     <li><a href="/contatos">Contatos</a></li>
-                    <li><a href="#">Sobre</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
                 </ul>
             </div>
         </nav>
