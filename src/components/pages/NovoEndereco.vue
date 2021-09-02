@@ -6,7 +6,7 @@
                    
                         <div class="form-group col-md-2">
                             <small for="cep">CEP</small>
-                            <input type="text" class="form-control" placeholder="06725-050" v-model="cep" v-on:change="buscaEnderecoPorCep"  v-mask="'#####-###'">
+                            <input type="text" class="form-control" placeholder="06725-050" v-model="endereco.cep" v-on:change="buscaEnderecoPorCep"  v-mask="'#####-###'">
                         </div>
 
                         <div class="form-group col-md-5">
@@ -76,9 +76,9 @@ export default{
     },
     methods: {
         buscaEnderecoPorCep () {
-            console.log("PESQUISANDO PELO CEP: " + this.cep);
+            console.log("PESQUISANDO PELO CEP: " + this.endereco.cep);
         
-            api.get('/buscaporcep/cep/' + this.cep).then(response => {
+            api.get('/buscaporcep/cep/' + this.endereco.cep).then(response => {
             console.log(response.data);
             this.endereco = {
                 cep          : response.data.cep,
