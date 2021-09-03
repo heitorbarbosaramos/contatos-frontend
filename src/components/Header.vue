@@ -3,9 +3,9 @@
 
         <nav  class="container">
         
-            <a href="/">
+            <router-link to="/">
                 <img alt="Logotipo" id="logo" src="https://thumbs.jusbr.com/filters:format(webp)/imgs.jusbr.com/publications/images/fdec4032a25557564976374b8f6ba6bb">
-            </a>
+            </router-link>
 
             <img alt="menu mobile" id="menu-button" v-on:click="openMenu" src="https://img.icons8.com/cotton/2x/4a90e2/menu.png"/>
 
@@ -14,10 +14,10 @@
             <div id="menu-items" :class="{active:menuActive}">
                 <img alt="Logotipo" id="menu-logo" src="https://thumbs.jusbr.com/filters:format(webp)/imgs.jusbr.com/publications/images/fdec4032a25557564976374b8f6ba6bb">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/novoEndenreco">Cadastrar</a></li>
-                    <li><a href="/contatos">Contatos</a></li>
-                    <li><a href="/sobre">Sobre</a></li>
+                    <li><router-link to="/">Home</router-link></li>
+                    <li><router-link to="/novoEndenreco">Cadastrar</router-link></li>
+                    <li><router-link to="/contatos">Contatos</router-link></li>
+                    <li><router-link to="/sobre">Sobre</router-link></li>
                 </ul>
             </div>
         </nav>
