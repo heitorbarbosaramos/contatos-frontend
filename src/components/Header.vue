@@ -14,10 +14,10 @@
             <div id="menu-items" :class="{active:menuActive}">
                 <img alt="Logotipo" id="menu-logo" src="https://thumbs.jusbr.com/filters:format(webp)/imgs.jusbr.com/publications/images/fdec4032a25557564976374b8f6ba6bb">
                 <ul>
-                    <li><router-link to="/">Home</router-link></li>
-                    <li><router-link to="/novoEndenreco">Cadastrar</router-link></li>
-                    <li><router-link to="/contatos">Contatos</router-link></li>
-                    <li><router-link to="/sobre">Sobre</router-link></li>
+                    <li v-on:click="closeMenu"><router-link to="/">Home</router-link></li>
+                    <li v-on:click="closeMenu"><router-link to="/novoEndenreco">Cadastrar</router-link></li>
+                    <li v-on:click="closeMenu"><router-link to="/contatos">Contatos</router-link></li>
+                    <li v-on:click="closeMenu"><router-link to="/sobre">Sobre</router-link></li>
                 </ul>
             </div>
         </nav>
