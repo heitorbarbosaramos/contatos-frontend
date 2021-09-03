@@ -8,6 +8,7 @@ import Contatos from '../components/pages/Contatos';
 import NovoEndereco from '../components/pages/NovoEndereco';
 import Editar from '../components/pages/Editar';
 import Sobre from '../components/pages/Sobre';
+import NotFound from '../components/NotFoundPage';
 
 const routes = [
     {
@@ -29,6 +30,10 @@ const routes = [
     {
         path:"/sobre",
         component: Sobre
+    },
+    { 
+        path: '*', 
+        component: NotFound 
     }
 ];
 
