@@ -29,6 +29,10 @@
                         <small for="logradouro">Editar</small>
                         <a :href="'/editar?id=' + endereco.id" class=" form-control btn btn-success">Editar</a>
                     </div>
+                    <div class="form-group col-md-2">
+                        <small for="logradouro">PDF</small>
+                        <button v-on:click="gerarPdf(endereco)" class=" form-control btn btn-success">PDF</button>
+                    </div>
                      <div class="form-group col-md-2">
                         <small for="logradouro">Excluir</small>
                         <a v-on:click="excluir(endereco.id)" class=" form-control btn btn-danger">Excluir</a>
@@ -44,6 +48,7 @@
 
 <script>
 import api from '@/services/ap.js';
+import jsPDF from 'jspdf';
 
 export default {
     name:'Contatos',
@@ -64,6 +69,22 @@ export default {
                 alert("Erro ao excluir endereco");
             })
            
+        },
+        gerarPdf(endereco){
+           console.log(endereco);
+            var doc = new jsPDF();
+            doc.text("id: " + endereco.id, 10, 10);
+            doc.text("logradouro: " + endereco.logradouro, 10, 20);
+            doc.text("bairro: " + endereco.bairro, 10, 30);
+            doc.text("localidade: " + endereco.localidade, 10, 40);
+            doc.text("cep: " + endereco.cep, 10, 50);
+            doc.text("ddd: " + endereco.ddd, 10, 60);
+            doc.text("uf: " + endereco.uf, 10, 70);
+            doc.text("ibge: " + endereco.ibge, 10, 80);
+            doc.text("siafi: " + endereco.siafi, 10, 90);
+           
+            doc.output('dataurlnewwindow', {});
+
         }
     },
     mounted(){
