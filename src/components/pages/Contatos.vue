@@ -49,6 +49,7 @@
 <script>
 import api from '@/services/ap.js';
 import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 export default {
     name:'Contatos',
@@ -72,16 +73,47 @@ export default {
         },
         gerarPdf(endereco){
            console.log(endereco);
-            var doc = new jsPDF();
-            doc.text("id: " + endereco.id, 10, 10);
-            doc.text("logradouro: " + endereco.logradouro, 10, 20);
-            doc.text("bairro: " + endereco.bairro, 10, 30);
-            doc.text("localidade: " + endereco.localidade, 10, 40);
-            doc.text("cep: " + endereco.cep, 10, 50);
-            doc.text("ddd: " + endereco.ddd, 10, 60);
-            doc.text("uf: " + endereco.uf, 10, 70);
-            doc.text("ibge: " + endereco.ibge, 10, 80);
-            doc.text("siafi: " + endereco.siafi, 10, 90);
+
+            var doc = new jsPDF('l','pt', 'a4', true);
+            
+            doc.autoTable({
+                head: [['LOGRADOURO', 'BAIRRO', 'LOCALIDADE', 'CEP', 'DDD', 'UF', 'IBGE', 'SIAF']],
+                body: [
+                    [
+                        endereco.logradouro, 
+                        endereco.bairro,
+                        endereco.localidade,
+                        endereco.cep,
+                        endereco.ddd,
+                        endereco.uf,
+                        endereco.ibge,
+                        endereco.siafi
+                    ],
+                    [
+                        endereco.logradouro, 
+                        endereco.bairro,
+                        endereco.localidade,
+                        endereco.cep,
+                        endereco.ddd,
+                        endereco.uf,
+                        endereco.ibge,
+                        endereco.siafi
+                    ],
+                    
+                ],
+            })
+          
+            doc.setFont('RopaSans-Regular');
+
+            doc.text("id: " + endereco.id, 40, 130);
+            doc.text("logradouro: " + endereco.logradouro, 40, 160);
+            doc.text("bairro: " + endereco.bairro, 40, 190);
+            doc.text("localidade: " + endereco.localidade, 40, 220);
+            doc.text("cep: " + endereco.cep, 40, 250);
+            doc.text("ddd: " + endereco.ddd, 40, 280);
+            doc.text("uf: " + endereco.uf, 40, 310);
+            doc.text("ibge: " + endereco.ibge, 40, 340);
+            doc.text("siafi: " + endereco.siafi, 40, 370);
            
             doc.output('dataurlnewwindow', {});
 
